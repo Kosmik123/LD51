@@ -5,8 +5,8 @@ public class StatsRandomizer : MonoBehaviour
     public event System.Action<Stat[]> OnStatsChanged;
 
     [SerializeField]
-    private CharacterStats characterStats;
-    public CharacterStats CharacterStats => characterStats;
+    private BattlerStats characterStats;
+    public BattlerStats CharacterStats => characterStats;
 
     public float MaxPossibleStatValue => strategy.MaxStatValue;
 
