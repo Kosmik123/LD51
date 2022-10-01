@@ -10,22 +10,25 @@ public class SlidersUIController : MonoBehaviour
 
     private StatusBarController[] sliders;
 
+    private void Awake()
+    {
+        int statsCount = statsRandomizer.CharacterStats.Stats.Length;
+        sliders = new StatusBarController[statsCount];
+        for (int i = 0; i < statsCount; i++)
+        {
+            sliders[i] = Instantiate(statusBarPrefab, transform);
+            sliders[i].Color = statsRandomizer.CharacterStats.GetStat(i).color;
+        }
+    }
+
     private void OnEnable()
     {
         statsRandomizer.OnStatsChanged += RefreshSliders;
-        int statsCount = statsRandomizer.StatsCount;
-        sliders = new StatusBarController[statsCount];
-        for(int i = 0; i < statsCount; i++)
-        {
-            sliders[i] = Instantiate(statusBarPrefab, transform);
-            sliders[i].Color = statsRandomizer.GetStat(i).color;
-        }
     }
 
     private void RefreshSliders(Stat[] stats)
     {
         int count = Mathf.Min(sliders.Length, stats.Length);
-        int maxPossibleValue = statsRandomizer.MaxPossibleStatValue;
         for (int i = 0; i < count; i++)
         {
             sliders[i].Value = (float)stats[i].Value;
