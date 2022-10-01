@@ -18,6 +18,11 @@ namespace FPP
             public float SpeedModifier => speedModifier;
         }
 
+        [SerializeField]
+        private Transform frontAxisProvider;
+
+
+
         [Header("Settings")]
         [SerializeField]
         private RunProperties runProperties;
@@ -68,8 +73,8 @@ namespace FPP
         private void DoMove()
         {
             Vector3 moveDirection =
-                vertical * transform.forward +
-                horizontal * sideWalkModifier * transform.right;
+                vertical * frontAxisProvider.forward +
+                horizontal * sideWalkModifier * frontAxisProvider.right;
 
             float speed = isRunning ? runProperties.SpeedModifier : 1;
             controller.Move(moveDirection.normalized * speed);
