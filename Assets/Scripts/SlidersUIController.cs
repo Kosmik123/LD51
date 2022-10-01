@@ -28,7 +28,8 @@ public class SlidersUIController : MonoBehaviour
         int maxPossibleValue = statsRandomizer.MaxPossibleStatValue;
         for (int i = 0; i < count; i++)
         {
-            sliders[i].Value = (float)stats[i].Value / maxPossibleValue;
+            sliders[i].Value = (float)stats[i].Value;
+            sliders[i].MaxValue = statsRandomizer.MaxPossibleStatValue;
         }
     }
 

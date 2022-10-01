@@ -41,6 +41,18 @@ public class StatusBarController : MonoBehaviour
         }
     }
 
+    [SerializeField]
+    private float maxValue;
+    public float MaxValue 
+    {
+        get => maxValue;
+        internal set
+        {
+            maxValue = value;
+            oneOverMaxValue = 1 / maxValue;
+        }
+    }
+    private float oneOverMaxValue;
 
     private readonly WaitForEndOfFrame wait = new WaitForEndOfFrame();
     private IEnumerator AnimateSliderCo()
@@ -49,10 +61,10 @@ public class StatusBarController : MonoBehaviour
         while(progress < 1)
         {
             progress += Time.deltaTime * speed;
-            slider.value = Mathf.Lerp(previousValue, targetValue, progress);
+            slider.value = Mathf.Lerp(previousValue, targetValue, progress) * oneOverMaxValue;
             yield return wait;
         }
-        slider.value = targetValue;
+        slider.value = targetValue * oneOverMaxValue;
     }
 
     private void OnValidate()
