@@ -8,17 +8,22 @@ public class Timer : MonoBehaviour
     private float currentTime;
     public float CurrentTime => currentTime;
 
+    [SerializeField]
+    private bool reverse;
+
     public UnityEvent onTick;
     public event System.Action OnTick;
 
     private void Update()
     {
-        currentTime += Time.deltaTime;
-        if (currentTime > interval)
+        currentTime += reverse ? -Time.deltaTime : Time.deltaTime;
+        if (IsIntervalAchieved)
         {
-            currentTime = 0;
+            currentTime = reverse ? interval : 0;
             onTick?.Invoke();
             OnTick?.Invoke();
         }
     }
+
+    public bool IsIntervalAchieved => reverse ? (currentTime < 0) : (currentTime > interval);
 }
