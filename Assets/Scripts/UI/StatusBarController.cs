@@ -100,7 +100,7 @@ public class StatusBarController : MonoBehaviour
         if(maxValueLabel != null)
             maxValueLabel.text = maxValue.ToString(NumberFormat);
         if (valueLabel != null)
-            valueLabel.text = value.ToString(NumberFormat);
+            valueLabel.text = Mathf.Min(value, maxValue).ToString(NumberFormat);
     }
 
     private void OnValidate()

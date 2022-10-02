@@ -22,6 +22,7 @@ public class Battler : MonoBehaviour
     private BattlerStats stats;
     [SerializeField]
     private float attackRange;
+    public float AttackRange => attackRange;
     [SerializeField]
     private float attackDuration;
 
