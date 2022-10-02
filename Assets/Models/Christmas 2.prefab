@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 4032542815507392506}
   - component: {fileID: 3773605411582636389}
   - component: {fileID: 6669360434493940529}
-  m_Layer: 0
+  - component: {fileID: 4451161542672323973}
+  m_Layer: 9
   m_Name: Christmas 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,3 +83,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4451161542672323973
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8953398970621185427}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7994650926060863905, guid: 167756e729b08184da881e840e35b055, type: 3}
