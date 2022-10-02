@@ -3,21 +3,23 @@ using UnityEngine;
 
 public class PlayerRotation : MonoBehaviour
 {
-    [SerializeField, Required]
-    private RaycastPointProvider pointProvider;
+    [SerializeField]
+    private Camera viewCamera;
+
+    [SerializeField]
+    private Transform forwardProvider;
 
     private void Update()
     {
-        var point = pointProvider.GetWorldPoint();
-        if (point != null)
-        {
-            Vector3 target = new Vector3(point.Value.x, transform.position.y, point.Value.z);
-            transform.LookAt(target, Vector3.up);
-        }
-    
+        Vector3 screenPosition = viewCamera.WorldToScreenPoint(transform.position);
+        Vector3 relativeMousePosition = Input.mousePosition - screenPosition;
+        relativeMousePosition.z = 0;
+        //relativeMousePosition = new Vector3(relativeMousePosition.x, 0, relativeMousePosition.y);
+        Quaternion relativeRotation = Quaternion.FromToRotation( relativeMousePosition, Vector3.right);
+        Vector3 relativeRotationEuler = relativeRotation.eulerAngles;
+        transform.rotation = Quaternion.Euler(0, relativeRotationEuler.z + 90, 0);
+
+
     }
-
-
-
 
 }
