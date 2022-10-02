@@ -8,9 +8,11 @@ public class EnemyController : MonoBehaviour
 
     [SerializeField] private Transform playerTransform;
 
-    public LayerMask whatIsGround, whatIsPlayer;
+    //public LayerMask whatIsGround, whatIsPlayer;
 
     private NavMeshAgent agent;
+
+    private float lookRadius = 10f;
 
     private void Start()
     {
@@ -19,10 +21,21 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        //float distance = Vector3.Distance(playerTransform.position, transform.position);
-
-        agent.SetDestination(playerTransform.position);
+        ChasePlayer();
     }
 
+    private void ChasePlayer()
+    {
+        float distance = Vector3.Distance(playerTransform.position, transform.position);
+        if (distance <= lookRadius)
+        {
+            agent.SetDestination(playerTransform.position);
+        }
+    }
 
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, lookRadius);
+    }
 }
