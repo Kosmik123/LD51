@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8088420593673206340}
   - component: {fileID: 7337591294316615785}
   - component: {fileID: 2534457710344012280}
+  - component: {fileID: 3787014679477009883}
   m_Layer: 9
   m_Name: Hay Styrta
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 3477384208292733945}
   m_LocalRotation: {x: -0.013614528, y: 0.0149657605, z: 0.0013020564, w: 0.9997945}
   m_LocalPosition: {x: -1.9513338, y: 0.18901211, z: 2.3255587}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1.5, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -81,3 +82,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3787014679477009883
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3477384208292733945}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.34, y: 0.97, z: 1.2820588}
+  m_Center: {x: 0.026605878, y: 0.054983348, z: 0.01110807}
