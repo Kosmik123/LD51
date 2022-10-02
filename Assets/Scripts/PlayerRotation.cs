@@ -18,8 +18,6 @@ public class PlayerRotation : MonoBehaviour
         Quaternion relativeRotation = Quaternion.FromToRotation( relativeMousePosition, Vector3.right);
         Vector3 relativeRotationEuler = relativeRotation.eulerAngles;
         transform.rotation = Quaternion.Euler(0, relativeRotationEuler.z + 90, 0);
-
-
     }
 
 }
