@@ -1,7 +1,15 @@
 ﻿using UnityEngine;
 
+public class StatsSettings : ScriptableObject
+{
+    public string[] statNames;
+}
+
 public class BattlerStats : MonoBehaviour
 {
+    [SerializeField]
+    private StatsSettings settings;
+
     [SerializeField]
     private Stat[] stats;
     public Stat[] Stats => stats;

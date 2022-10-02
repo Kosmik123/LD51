@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxStatValue: 10
   minStatValue: 1
-  valuesSum: 20
+  valuesSum: 25
