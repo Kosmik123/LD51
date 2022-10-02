@@ -96,7 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 127b1252627ed3743a39b2f7ecc7542b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointProvider: {fileID: 4839069243305978756}
+  viewCamera: {fileID: 8875838725193271234}
+  forwardProvider: {fileID: 2416499937581379695}
 --- !u!1 &2906226272578724439
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,6 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aeb81b2e2989714c8cc716a4b56c7a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settings: {fileID: 0}
   stats:
   - name: Strength
     color: {r: 1, g: 0, b: 0, a: 1}
@@ -258,7 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6adcd337b1d3b35438a9c3d5b3eaf3e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frontAxisProvider: {fileID: 0}
+  frontAxisProvider: {fileID: 2416499937581379695}
   runProperties:
     key: 304
     speedModifier: 1.5
