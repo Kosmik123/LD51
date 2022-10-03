@@ -18,6 +18,11 @@ public class EnemyController : MonoBehaviour
 
     public Transform container;
 
+    public float restTime;
+    [SerializeField, ReadOnly]
+    private float restState;
+
+
     [SerializeField, ReadOnly]
     private float currentSpeed;
 
@@ -42,23 +47,37 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        ChasePlayer();
+        restState += Time.deltaTime;
+        float distance = Vector3.Distance(playerTransform.position, transform.position);
+        if (distance <= 2 * battler.AttackRange)
+        {
+            Attack();
+        }
+        else if(distance <= lookRadius)
+        {
+            ChasePlayer();
+        }
+
         CalculateAngleTowardsPlayer();
 
         currentSpeed = agent.velocity.magnitude;
         animator.SetFloat("Speed", currentSpeed);
     }
 
+    private void Attack()
+    {
+        if (restState > restTime)
+        {
+            restState = 0;
+            battler.DoAttack();
+        }
+    }
+
     private void ChasePlayer()
     {
-        float distance = Vector3.Distance(playerTransform.position, transform.position);
-        if (distance <= lookRadius)
-        {
-            if (agent.isActiveAndEnabled)
+        if (agent.isActiveAndEnabled)
                 agent.SetDestination(playerTransform.position);
-        }
 
-        
         if (CalculateAngleTowardsPlayer() < enemyAngle)
         {
             agent.speed = forwardSpeed;
@@ -68,6 +87,7 @@ public class EnemyController : MonoBehaviour
             agent.speed = backwardSpeed;
         }
     }
+
     private float CalculateAngleTowardsPlayer()
     {
         Vector3 VectorForward = transform.forward;
