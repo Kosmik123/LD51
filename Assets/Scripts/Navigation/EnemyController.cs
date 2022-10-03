@@ -54,9 +54,11 @@ public class EnemyController : MonoBehaviour
         float distance = Vector3.Distance(playerTransform.position, transform.position);
         if (distance <= lookRadius)
         {
-            agent.SetDestination(playerTransform.position);
+            if (agent.isActiveAndEnabled)
+                agent.SetDestination(playerTransform.position);
         }
 
+        
         if (CalculateAngleTowardsPlayer() < enemyAngle)
         {
             agent.speed = forwardSpeed;
@@ -85,6 +87,7 @@ public class EnemyController : MonoBehaviour
     {
         container.gameObject.SetActive(true);
         agent.enabled = true;
+        battler.Health.FullRestore();
     }    
 
 }

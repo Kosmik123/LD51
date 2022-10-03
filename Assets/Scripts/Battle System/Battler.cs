@@ -22,6 +22,7 @@ public class Battler : MonoBehaviour
 
     [SerializeField, Required]
     private VariableAttribute health;
+    public VariableAttribute Health => health;
 
     [SerializeField]
     private int attack;

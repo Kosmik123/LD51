@@ -39,6 +39,7 @@ namespace FPP
         [SerializeField]
         private LayerMask groundLayers;
 
+        public float jumpModifier;
         public float speedModifier;
 
         [SerializeField]
@@ -85,7 +86,7 @@ namespace FPP
         public void Jump()
         {
             if (isGrounded)
-                velocity.y = jumpForce;
+                velocity.y = jumpForce * jumpModifier;
         }
         #endregion
 

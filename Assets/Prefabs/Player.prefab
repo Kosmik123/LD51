@@ -452,8 +452,9 @@ MonoBehaviour:
   groundLayers:
     serializedVersion: 2
     m_Bits: 768
-  speedModifier: 1.5
-  moveSpeed: 4
+  jumpModifier: 1.2
+  speedModifier: 1.8
+  moveSpeed: 8
   jumpForce: 6
   velocity: {x: 0, y: 0, z: 0}
   isGrounded: 0

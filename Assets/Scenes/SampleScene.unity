@@ -1046,9 +1046,41 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 5003128844788354285, guid: 92fad4c27ca39434286e46cab441f773, type: 3}
+      propertyPath: jumpModifier
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5003128844788354285, guid: 92fad4c27ca39434286e46cab441f773, type: 3}
+      propertyPath: speedModifier
+      value: 1.8
+      objectReference: {fileID: 0}
     - target: {fileID: 6461143924443035282, guid: 92fad4c27ca39434286e46cab441f773, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 7687538133292766364, guid: 92fad4c27ca39434286e46cab441f773, type: 3}
+      propertyPath: stats.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7687538133292766364, guid: 92fad4c27ca39434286e46cab441f773, type: 3}
+      propertyPath: stats.Array.data[2].name
+      value: Jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 7687538133292766364, guid: 92fad4c27ca39434286e46cab441f773, type: 3}
+      propertyPath: stats.Array.data[3].name
+      value: Speed
+      objectReference: {fileID: 0}
+    - target: {fileID: 7687538133292766364, guid: 92fad4c27ca39434286e46cab441f773, type: 3}
+      propertyPath: stats.Array.data[3].color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7687538133292766364, guid: 92fad4c27ca39434286e46cab441f773, type: 3}
+      propertyPath: stats.Array.data[3].color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7687538133292766364, guid: 92fad4c27ca39434286e46cab441f773, type: 3}
+      propertyPath: stats.Array.data[3].color.r
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5003128844788354286, guid: 92fad4c27ca39434286e46cab441f773, type: 3}
