@@ -14,14 +14,25 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private Battler battler;
     [SerializeField] private Animator animator;
 
+    public Timer timer;
+
+    public Transform container;
+
     [SerializeField, ReadOnly]
     private float currentSpeed;
 
     private NavMeshAgent agent;
 
-    private void OnEnable()
+    private void Awake()
     {
-        battler.OnDied += () => gameObject.SetActive(false);
+        battler.OnDied += Die;
+        timer.Interval = Random.Range(10, 20);
+    }
+
+    public void Die()
+    {
+        container.gameObject.SetActive(false);
+        agent.enabled = false;
     }
 
     private void Start()
@@ -69,4 +80,11 @@ public class EnemyController : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, lookRadius);
     }
+
+    public void Respawn()
+    {
+        container.gameObject.SetActive(true);
+        agent.enabled = true;
+    }    
+
 }

@@ -39,6 +39,8 @@ namespace FPP
         [SerializeField]
         private LayerMask groundLayers;
 
+        public float speedModifier;
+
         [SerializeField]
         private float moveSpeed;
         public float MoveSpeed
@@ -76,8 +78,8 @@ namespace FPP
         #region PUBLIC
         public void Move(Vector3 direction)
         {
-            velocity.x = direction.x * moveSpeed;
-            velocity.z = direction.z * moveSpeed;
+            velocity.x = direction.x * moveSpeed * speedModifier;
+            velocity.z = direction.z * moveSpeed * speedModifier;
         }
 
         public void Jump()

@@ -6,9 +6,6 @@ public class StatsRandomizer : MonoBehaviour
 {
     public event System.Action<Stat[]> OnStatsChanged;
 
-    [SerializeField]
-    private BattlerStats characterStats;
-    public BattlerStats CharacterStats => characterStats;
 
     [Required]
     public Battler playerBattler;
@@ -22,7 +19,7 @@ public class StatsRandomizer : MonoBehaviour
     private RandomizeStrategy strategy;
 
     [SerializeField]
-    private Stat[] stats = new Stat[4];
+    private Stat[] stats;
 
     private void Start()
     {
@@ -38,6 +35,6 @@ public class StatsRandomizer : MonoBehaviour
         playerController.JumpForce = stats[2].Value;
         playerController.MoveSpeed = stats[3].Value;
 
-        OnStatsChanged?.Invoke(characterStats.Stats);
+        OnStatsChanged?.Invoke(stats);
     }
 }

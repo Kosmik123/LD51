@@ -5,6 +5,10 @@ public class Timer : MonoBehaviour
 {
     [SerializeField]
     private float interval = 1;
+    public float Interval { get => interval; set => interval = value; }
+
+
+
     private float currentTime;
     public float CurrentTime => currentTime;
 
@@ -19,11 +23,12 @@ public class Timer : MonoBehaviour
         currentTime += reverse ? -Time.deltaTime : Time.deltaTime;
         if (IsIntervalAchieved)
         {
-            currentTime = reverse ? interval : 0;
+            currentTime = reverse ? Interval : 0;
             onTick?.Invoke();
             OnTick?.Invoke();
         }
     }
 
-    public bool IsIntervalAchieved => reverse ? (currentTime < 0) : (currentTime > interval);
+    public bool IsIntervalAchieved => reverse ? (currentTime < 0) : (currentTime > Interval);
+
 }

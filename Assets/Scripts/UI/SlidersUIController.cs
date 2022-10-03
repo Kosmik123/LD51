@@ -8,6 +8,7 @@ public class SlidersUIController : MonoBehaviour
     [SerializeField]
     private StatsRandomizer statsRandomizer;
 
+    [SerializeField]
     private StatusBarController[] sliders;
 
     private void OnEnable()

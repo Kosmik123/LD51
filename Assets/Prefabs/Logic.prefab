@@ -74,7 +74,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterStats: {fileID: 0}
+  playerBattler: {fileID: 0}
+  playerController: {fileID: 0}
   strategy: {fileID: 11400000, guid: 35da15078fd13344cb0e82658385bc4b, type: 2}
+  stats:
+  - name: Attack
+    color: {r: 1, g: 0, b: 0, a: 1}
+  - name: Defence
+    color: {r: 0, g: 0.34550333, b: 1, a: 1}
+  - name: Jump
+    color: {r: 1, g: 0.8101982, b: 0, a: 1}
+  - name: Speed
+    color: {r: 0, g: 1, b: 0.12042332, a: 1}
 --- !u!1 &7105337660412536114
 GameObject:
   m_ObjectHideFlags: 0
