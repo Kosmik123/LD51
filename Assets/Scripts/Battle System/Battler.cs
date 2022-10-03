@@ -73,9 +73,11 @@ public class Battler : MonoBehaviour
     {
         int lostHealth = lastHealth - health;
         lastHealth = health;
-        var healthLoss = Instantiate(healthLossEffectPrefab, transform);
-        healthLoss.SetValue(lostHealth);
-        
+        if (lostHealth > 0)
+        {
+            var healthLoss = Instantiate(healthLossEffectPrefab, transform);
+            healthLoss.SetValue(lostHealth);
+        }
         //OnBattlerDamaged?.Invoke(this, lostHealth);
         if (health <= 0)
         {

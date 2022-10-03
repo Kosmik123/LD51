@@ -7,10 +7,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2593516717767595522, guid: d510fd2e2d458d740855405b50205ff2, type: 3}
+      propertyPath: attack
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2593516717767595522, guid: d510fd2e2d458d740855405b50205ff2, type: 3}
+      propertyPath: defence
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2593516718113632333, guid: d510fd2e2d458d740855405b50205ff2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 2593516718749164451, guid: d510fd2e2d458d740855405b50205ff2, type: 3}
       propertyPath: animator
       value: 
       objectReference: {fileID: 2356956139265425181}
+    - target: {fileID: 2593516718749164508, guid: d510fd2e2d458d740855405b50205ff2, type: 3}
+      propertyPath: m_AgentTypeID
+      value: -334000983
+      objectReference: {fileID: 0}
     - target: {fileID: 2593516718749164509, guid: d510fd2e2d458d740855405b50205ff2, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -83,7 +99,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 854efff2be4d6654991181bca3bca24b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 854efff2be4d6654991181bca3bca24b, type: 3}
       propertyPath: m_LocalPosition.z
