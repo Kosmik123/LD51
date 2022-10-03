@@ -23,6 +23,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 3549033857110203552}
+    - target: {fileID: 2593516718749164451, guid: d510fd2e2d458d740855405b50205ff2, type: 3}
+      propertyPath: lookRadius
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 2593516718749164509, guid: d510fd2e2d458d740855405b50205ff2, type: 3}
       propertyPath: m_RootOrder
       value: 0

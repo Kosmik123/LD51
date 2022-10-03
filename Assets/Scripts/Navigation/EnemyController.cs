@@ -73,7 +73,6 @@ public class EnemyController : MonoBehaviour
         Vector3 VectorForward = transform.forward;
         Vector3 relativePosition = playerTransform.position - transform.position;
         float angleValue = Vector3.Angle(VectorForward, relativePosition);
-        Debug.Log(angleValue);
         return angleValue;
     }
 

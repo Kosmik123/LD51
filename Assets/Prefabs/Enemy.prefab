@@ -52,6 +52,7 @@ MonoBehaviour:
   health: {fileID: 4935483463112232953}
   attack: 0
   defence: 0
+  healthLossEffectPrefab: {fileID: 7799142692006332778, guid: ab50786f813d78043b64fd9436e6560b, type: 3}
   isDead: 0
 --- !u!114 &2593516717767595523
 MonoBehaviour:

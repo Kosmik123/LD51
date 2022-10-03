@@ -11,6 +11,8 @@ public class Battler : MonoBehaviour
     public event System.Action<int> OnAttackChanged;
     public event System.Action<int> OnDefenceChanged;
 
+    public static event System.Action<Battler, int> OnBattlerDamaged;
+
     [SerializeField, Required]
     private BattlerStats stats;
     [SerializeField]
@@ -46,6 +48,8 @@ public class Battler : MonoBehaviour
         }
     }
 
+    public HealthLossEffect healthLossEffectPrefab;
+
     [SerializeField, ReadOnly]
     private bool isDead;
 
@@ -59,8 +63,20 @@ public class Battler : MonoBehaviour
         health.OnValueChanged += CheckDeath;
     }
 
+    private void Start()
+    {
+        lastHealth = health.Value;
+    }
+
+    private int lastHealth;
     private void CheckDeath(int health)
     {
+        int lostHealth = lastHealth - health;
+
+        var healthLoss = Instantiate(healthLossEffectPrefab, transform);
+        healthLoss.SetValue(lostHealth);
+        
+        //OnBattlerDamaged?.Invoke(this, lostHealth);
         if (health <= 0)
         {
             isDead = true;

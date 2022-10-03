@@ -7,12 +7,9 @@ public class HealthLossEffect : MonoBehaviour
 {
     public float moveDistance;
     private float progress;
-    public TextMeshProUGUI label;
+    public TMP_Text label;
 
     public AnimationCurve alphaCurve;
-
-
-
 
     private void Start()
     {
@@ -33,12 +30,14 @@ public class HealthLossEffect : MonoBehaviour
             color.a = alphaCurve.Evaluate(progress);
             label.color = color;
         }
-
-        color = label.color;
-        color.a = alphaCurve.Evaluate(1);
-        label.color = color;
-        transform.position = new Vector3(transform.position.x, moveDistance, transform.position.z);
-        Destroy(gameObject);
+        else
+        {
+            color = label.color;
+            color.a = alphaCurve.Evaluate(1);
+            label.color = color;
+            transform.position = new Vector3(transform.position.x, moveDistance, transform.position.z);
+            Destroy(gameObject);
+        }
     }
 
     public void SetValue(int value)
