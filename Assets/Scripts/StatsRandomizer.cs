@@ -1,3 +1,5 @@
+using FPP;
+using NaughtyAttributes;
 using UnityEngine;
 
 public class StatsRandomizer : MonoBehaviour
@@ -8,10 +10,19 @@ public class StatsRandomizer : MonoBehaviour
     private BattlerStats characterStats;
     public BattlerStats CharacterStats => characterStats;
 
+    [Required]
+    public Battler playerBattler;
+    [Required]
+    public PersonController playerController;
+
+
     public float MaxPossibleStatValue => strategy.MaxStatValue;
 
     [SerializeField]
     private RandomizeStrategy strategy;
+
+    [SerializeField]
+    private Stat[] stats = new Stat[4];
 
     private void Start()
     {
@@ -20,8 +31,13 @@ public class StatsRandomizer : MonoBehaviour
 
     public void RandomizeStats()
     {
-        var stats = characterStats.Stats;
-        strategy.ChangeStats(ref stats);
+        stats = strategy.ChangeStats(stats);
+
+        playerBattler.Attack = stats[0].Value;
+        playerBattler.Defence = stats[1].Value;
+        playerController.JumpForce = stats[2].Value;
+        playerController.MoveSpeed = stats[3].Value;
+
         OnStatsChanged?.Invoke(characterStats.Stats);
     }
 }

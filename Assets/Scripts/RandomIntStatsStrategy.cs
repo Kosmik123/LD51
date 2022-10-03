@@ -3,7 +3,7 @@
 public abstract class RandomizeStrategy : ScriptableObject
 {
     public abstract int MaxStatValue { get; }
-    public abstract void ChangeStats(ref Stat[] stats);
+    public abstract Stat[] ChangeStats(Stat[] stats);
 }
 
 public class RandomIntStatsStrategy : RandomizeStrategy
@@ -17,7 +17,7 @@ public class RandomIntStatsStrategy : RandomizeStrategy
     [SerializeField]
     private int statsSum;
 
-    public override void ChangeStats(ref Stat[] stats)
+    public override Stat[] ChangeStats(Stat[] stats)
     {
         int count = stats.Length;
         int remainingPoints = statsSum;
@@ -28,5 +28,6 @@ public class RandomIntStatsStrategy : RandomizeStrategy
             stats[i].Value = value;
             remainingPoints -= value;
         }
+        return stats;
     }
 }

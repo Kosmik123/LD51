@@ -8,11 +8,15 @@ public class Battler : MonoBehaviour
 {
     public event System.Action OnDied;
 
+    public event System.Action<int> OnAttackChanged;
+    public event System.Action<int> OnDefenceChanged;
+
     [SerializeField, Required]
     private BattlerStats stats;
     [SerializeField]
     private float attackRange;
     public float AttackRange => attackRange;
+
     [SerializeField]
     private float attackDuration;
 
@@ -21,8 +25,25 @@ public class Battler : MonoBehaviour
 
     [SerializeField]
     private int attack;
+    public int Attack
+    {
+        get => attack; 
+        set 
+        { 
+            attack = value;
+            OnAttackChanged?.Invoke(attack);
+        }
+    }
+
     [SerializeField]
     private int defence;
+    public int Defence { get => defence;
+        set
+        {
+            defence = value;
+            OnDefenceChanged?.Invoke(defence);
+        }
+    }
 
     [SerializeField, ReadOnly]
     private bool isDead;
@@ -46,9 +67,9 @@ public class Battler : MonoBehaviour
         }
     }
 
-    public void Attack ()
+    public void DoAttack ()
     {
-        StartCoroutine(DoAttack());
+        StartCoroutine(AttackCo());
         
         Vector3 attackCenter = new Vector3(0, 0, attackRange);
         int count = Physics.OverlapSphereNonAlloc(transform.position + attackCenter, attackRange, detectedColliders);
@@ -58,13 +79,13 @@ public class Battler : MonoBehaviour
             if (collider != null && collider.TryGetComponent<Battler>(out var otherBattler))
             {
                 if (otherBattler != this)
-                    otherBattler.InflictDamage(attack);
+                    otherBattler.InflictDamage(Attack);
             }
         }
     }
 
     private static readonly WaitForEndOfFrame wait = new WaitForEndOfFrame();
-    private IEnumerator DoAttack()
+    private IEnumerator AttackCo()
     {
         isAttacking = true;
         float attackTime = 0;
@@ -78,7 +99,7 @@ public class Battler : MonoBehaviour
 
     private void InflictDamage(int attack)
     {
-        int damage = 2 * attack - defence;
+        int damage = 2 * attack - Defence;
         health.Change(-damage);
     }
 

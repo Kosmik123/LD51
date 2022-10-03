@@ -10,17 +10,6 @@ public class SlidersUIController : MonoBehaviour
 
     private StatusBarController[] sliders;
 
-    private void Awake()
-    {
-        int statsCount = statsRandomizer.CharacterStats.Stats.Length;
-        sliders = new StatusBarController[statsCount];
-        for (int i = 0; i < statsCount; i++)
-        {
-            sliders[i] = Instantiate(statusBarPrefab, transform);
-            sliders[i].Color = statsRandomizer.CharacterStats.GetStat(i).color;
-        }
-    }
-
     private void OnEnable()
     {
         statsRandomizer.OnStatsChanged += RefreshSliders;

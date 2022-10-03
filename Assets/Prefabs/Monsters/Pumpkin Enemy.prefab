@@ -7,13 +7,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2593516717767595522, guid: d510fd2e2d458d740855405b50205ff2, type: 3}
+      propertyPath: attackRange
+      value: 0.99
+      objectReference: {fileID: 0}
     - target: {fileID: 2593516717767595580, guid: d510fd2e2d458d740855405b50205ff2, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.656
       objectReference: {fileID: 0}
     - target: {fileID: 2593516717767595580, guid: d510fd2e2d458d740855405b50205ff2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.799
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 2593516718749164451, guid: d510fd2e2d458d740855405b50205ff2, type: 3}
       propertyPath: animator
@@ -54,6 +58,10 @@ PrefabInstance:
     - target: {fileID: 2593516718749164510, guid: d510fd2e2d458d740855405b50205ff2, type: 3}
       propertyPath: m_Name
       value: Pumpkin Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6969356469506595330, guid: d510fd2e2d458d740855405b50205ff2, type: 3}
+      propertyPath: m_Radius
+      value: 0.94
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d510fd2e2d458d740855405b50205ff2, type: 3}

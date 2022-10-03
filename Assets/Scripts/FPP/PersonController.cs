@@ -16,11 +16,12 @@ namespace FPP
 
     }
 
-
-
     [RequireComponent(typeof(CharacterController))]
     public class PersonController : MonoBehaviour
     {
+        public event System.Action<int> OnJumpChanged;
+        public event System.Action<int> OnSpeedChanged;
+
         private CharacterController controller;
         private Animator animator;
 
@@ -43,7 +44,11 @@ namespace FPP
         public float MoveSpeed
         {
             get => moveSpeed;
-            set => moveSpeed = value;
+            set 
+            { 
+                moveSpeed = value;
+                OnSpeedChanged?.Invoke((int)moveSpeed);
+            }
         }
 
         [SerializeField]
@@ -51,7 +56,11 @@ namespace FPP
         public float JumpForce
         {
             get => jumpForce;
-            set => jumpForce = value;
+            set
+            {
+                jumpForce = value;
+                OnJumpChanged?.Invoke((int)jumpForce);
+            }
         }
 
         [Header("States")]

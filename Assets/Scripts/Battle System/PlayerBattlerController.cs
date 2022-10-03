@@ -16,7 +16,7 @@ public class PlayerBattlerController : MonoBehaviour
     {
         if (Input.GetButtonDown(attackButton))
         {
-            battler.Attack();
+            battler.DoAttack();
         }
     }
 

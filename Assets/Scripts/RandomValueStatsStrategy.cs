@@ -16,7 +16,7 @@ public class RandomValueStatsStrategy : RandomizeStrategy
 
 
     [ContextMenu("Randomize")]
-    public override void ChangeStats(ref Stat[] stats)
+    public override Stat[] ChangeStats(Stat[] stats)
     {
         int count = stats.Length;
         randomValues.Clear();
@@ -34,5 +34,6 @@ public class RandomValueStatsStrategy : RandomizeStrategy
             Stat stat = stats[i];
             stat.Value = minStatValue + Mathf.RoundToInt(statAddition * randomValues[i] / sum);
         }
+        return stats;
     }
 }
