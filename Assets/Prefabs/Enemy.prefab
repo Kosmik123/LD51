@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 2593516717767595580}
   - component: {fileID: 2593516717767595522}
   - component: {fileID: 2593516717767595523}
+  - component: {fileID: 4935483463112232953}
+  - component: {fileID: 6969356469506595330}
   m_Layer: 0
   m_Name: RPG Battler
   m_TagString: Untagged
@@ -47,8 +49,10 @@ MonoBehaviour:
   stats: {fileID: 2593516717767595523}
   attackRange: 0.9
   attackDuration: 0
-  health: {fileID: 0}
-  isAttacking: 0
+  health: {fileID: 4935483463112232953}
+  attack: 0
+  defence: 0
+  isDead: 0
 --- !u!114 &2593516717767595523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,6 +67,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settings: {fileID: 0}
   stats: []
+--- !u!114 &4935483463112232953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2593516717767595581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 222376c6de8d0314b9a3a4a52c58d647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxValue: 100
+  value: 0
+--- !u!135 &6969356469506595330
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2593516717767595581}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2593516718113632334
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,6 +220,7 @@ MonoBehaviour:
   enemyAngle: 90
   forwardSpeed: 4
   backwardSpeed: 0.2
+  battler: {fileID: 2593516717767595522}
   animator: {fileID: 0}
   currentSpeed: 0
 --- !u!195 &2593516718749164508

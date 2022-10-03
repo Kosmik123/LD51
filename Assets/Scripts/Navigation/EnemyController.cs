@@ -11,7 +11,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float enemyAngle = 90;
     [SerializeField] private float forwardSpeed;
     [SerializeField] private float backwardSpeed;
-
+    [SerializeField] private Battler battler;
     [SerializeField] private Animator animator;
 
     [SerializeField, ReadOnly]
@@ -19,6 +19,10 @@ public class EnemyController : MonoBehaviour
 
     private NavMeshAgent agent;
 
+    private void OnEnable()
+    {
+        battler.OnDied += () => gameObject.SetActive(false);
+    }
 
     private void Start()
     {

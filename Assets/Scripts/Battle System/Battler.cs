@@ -1,5 +1,4 @@
 using NaughtyAttributes;
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -7,6 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class Battler : MonoBehaviour
 {
+    public event System.Action OnDied;
+
     [SerializeField, Required]
     private BattlerStats stats;
     [SerializeField]
@@ -23,38 +24,52 @@ public class Battler : MonoBehaviour
     [SerializeField]
     private int defence;
 
-    private new Collider collider;
-
-    private readonly Collider[] detectedColliders = new Collider[5]; // 5 = maximum number of attacked objects in single attack
-    
     [SerializeField, ReadOnly]
+    private bool isDead;
+
+    private new Collider collider;
+    private readonly Collider[] detectedColliders = new Collider[32]; // 32= maximum number of attacked objects in single attack
+    
     private bool isAttacking;
+
+    private void OnEnable()
+    {
+        health.OnValueChanged += CheckDeath;
+    }
+
+    private void CheckDeath(int health)
+    {
+        if (health <= 0)
+        {
+            isDead = true;
+            OnDied?.Invoke();
+        }
+    }
 
     public void Attack ()
     {
         StartCoroutine(DoAttack());
+        
+        Vector3 attackCenter = new Vector3(0, 0, attackRange);
+        int count = Physics.OverlapSphereNonAlloc(transform.position + attackCenter, attackRange, detectedColliders);
+        for (int i = 0; i < count; i++)
+        {
+            var collider = detectedColliders[i];
+            if (collider != null && collider.TryGetComponent<Battler>(out var otherBattler))
+            {
+                if (otherBattler != this)
+                    otherBattler.InflictDamage(attack);
+            }
+        }
     }
-
 
     private static readonly WaitForEndOfFrame wait = new WaitForEndOfFrame();
     private IEnumerator DoAttack()
     {
-        Vector3 attackCenter = new Vector3(0, 0, attackRange);
         isAttacking = true;
         float attackTime = 0;
         while (attackTime < attackDuration)
         {
-            int count = Physics.OverlapSphereNonAlloc(transform.position + attackCenter, attackRange, detectedColliders);
-            for (int i = 0; i < count; i++)
-            {
-                var collider = detectedColliders[i];
-                if (collider != null && collider.TryGetComponent<Battler>(out var otherBattler))
-                {
-                    if (otherBattler != this)
-                        otherBattler.InflictDamage(attack);
-                }
-            }
-
             attackTime += Time.deltaTime;
             yield return wait;
         }
@@ -63,8 +78,13 @@ public class Battler : MonoBehaviour
 
     private void InflictDamage(int attack)
     {
-        int damage = 4 * attack - 2 * defence;
+        int damage = 2 * attack - defence;
         health.Change(-damage);
+    }
+
+    private void OnDisable()
+    {
+        health.OnValueChanged -= CheckDeath;
     }
 
     private void OnDrawGizmos()
