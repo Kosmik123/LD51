@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2593516717767595522}
   - component: {fileID: 2593516717767595523}
   - component: {fileID: 4935483463112232953}
-  - component: {fileID: 6969356469506595330}
+  - component: {fileID: 5182310666581408917}
   m_Layer: 0
   m_Name: RPG Battler
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2593516717767595581}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0.4}
+  m_LocalPosition: {x: 0, y: 1.67, z: 0.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 154478188542013727}
@@ -82,8 +82,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxValue: 100
   value: 0
---- !u!135 &6969356469506595330
-SphereCollider:
+--- !u!136 &5182310666581408917
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -92,9 +92,10 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.66
+  m_Height: 3.62
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.37, z: -0.43}
 --- !u!1 &2593516718113632334
 GameObject:
   m_ObjectHideFlags: 0

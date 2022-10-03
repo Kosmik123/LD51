@@ -72,7 +72,7 @@ public class Battler : MonoBehaviour
     private void CheckDeath(int health)
     {
         int lostHealth = lastHealth - health;
-
+        lastHealth = health;
         var healthLoss = Instantiate(healthLossEffectPrefab, transform);
         healthLoss.SetValue(lostHealth);
         
@@ -88,8 +88,7 @@ public class Battler : MonoBehaviour
     {
         StartCoroutine(AttackCo());
         
-        Vector3 attackCenter = new Vector3(0, 0, attackRange);
-        int count = Physics.OverlapSphereNonAlloc(transform.position + attackCenter, attackRange, detectedColliders);
+        int count = Physics.OverlapSphereNonAlloc(transform.position + transform.forward * attackRange, attackRange, detectedColliders);
         for (int i = 0; i < count; i++)
         {
             var collider = detectedColliders[i];

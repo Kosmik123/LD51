@@ -27,6 +27,10 @@ PrefabInstance:
       propertyPath: lookRadius
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 2593516718749164508, guid: d510fd2e2d458d740855405b50205ff2, type: 3}
+      propertyPath: m_AgentTypeID
+      value: -1372625422
+      objectReference: {fileID: 0}
     - target: {fileID: 2593516718749164509, guid: d510fd2e2d458d740855405b50205ff2, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -65,7 +69,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6969356469506595330, guid: d510fd2e2d458d740855405b50205ff2, type: 3}
       propertyPath: m_Radius
-      value: 0.94
+      value: 1.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d510fd2e2d458d740855405b50205ff2, type: 3}
