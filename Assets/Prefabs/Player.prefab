@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &843434062055543133
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6651594282966517971}
+  - component: {fileID: 1330654646551730099}
+  m_Layer: 0
+  m_Name: Health
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6651594282966517971
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843434062055543133}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 255833841954565222}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1330654646551730099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843434062055543133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 222376c6de8d0314b9a3a4a52c58d647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxValue: 100
+  value: 0
 --- !u!1 &1292653065436915653
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,6 +280,8 @@ GameObject:
   - component: {fileID: 255833841954565222}
   - component: {fileID: 1732131248831982013}
   - component: {fileID: 7687538133292766364}
+  - component: {fileID: 4310053675430377101}
+  - component: {fileID: 3838222664736026391}
   m_Layer: 0
   m_Name: Battler
   m_TagString: Untagged
@@ -252,7 +299,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 6651594282966517971}
   m_Father: {fileID: 4556375138437273621}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -270,8 +318,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 7687538133292766364}
   attackRange: 0.9
-  attackDuration: 0
-  health: {fileID: 0}
+  attackDuration: 0.1
+  health: {fileID: 1330654646551730099}
+  attack: 5
+  defence: 5
   isAttacking: 0
 --- !u!114 &7687538133292766364
 MonoBehaviour:
@@ -299,6 +349,34 @@ MonoBehaviour:
     color: {r: 0, g: 1, b: 0, a: 1}
   - name: Attack Range
     color: {r: 0, g: 1, b: 1, a: 1}
+--- !u!114 &4310053675430377101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2906226272578724439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45f4501d18fb28441b34018d61d6c91f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  battler: {fileID: 1732131248831982013}
+  attackButton: Fire1
+--- !u!136 &3838222664736026391
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2906226272578724439}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.61
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.07, z: -0.33}
 --- !u!1 &5003128844788354195
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,11 +796,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3394117095933311566, guid: 108cbf616fc841c46a0e5ca98d0a7bae, type: 3}
   m_PrefabInstance: {fileID: 1050308928277432865}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &198424841976921311 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 888194496825685758, guid: 108cbf616fc841c46a0e5ca98d0a7bae, type: 3}
-  m_PrefabInstance: {fileID: 1050308928277432865}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6461143924443035282 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6285312373108276403, guid: 108cbf616fc841c46a0e5ca98d0a7bae, type: 3}
@@ -731,6 +804,11 @@ Transform:
 --- !u!20 &8875838725193271234 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 8484256322880589283, guid: 108cbf616fc841c46a0e5ca98d0a7bae, type: 3}
+  m_PrefabInstance: {fileID: 1050308928277432865}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &198424841976921311 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 888194496825685758, guid: 108cbf616fc841c46a0e5ca98d0a7bae, type: 3}
   m_PrefabInstance: {fileID: 1050308928277432865}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &4839069243305978756

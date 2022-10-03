@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using NaughtyAttributes;
 using TMPro;
+using System;
+
 
 public class StatusBarController : MonoBehaviour
 {
