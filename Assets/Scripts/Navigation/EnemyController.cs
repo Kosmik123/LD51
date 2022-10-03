@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,12 +6,16 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-
     [SerializeField] private Transform playerTransform;
     [SerializeField] private float lookRadius = 10f;
     [SerializeField] private float enemyAngle = 90;
     [SerializeField] private float forwardSpeed;
     [SerializeField] private float backwardSpeed;
+
+    [SerializeField] private Animator animator;
+
+    [SerializeField, ReadOnly]
+    private float currentSpeed;
 
     private NavMeshAgent agent;
 
@@ -24,6 +29,9 @@ public class EnemyController : MonoBehaviour
     {
         ChasePlayer();
         CalculateAngleTowardsPlayer();
+
+        currentSpeed = agent.velocity.magnitude;
+        animator.SetFloat("Speed", currentSpeed);
     }
 
     private void ChasePlayer()
